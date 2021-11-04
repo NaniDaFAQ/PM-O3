@@ -11,6 +11,9 @@ class life {
     void changeParameters();
     void putSubMenu();
 
+    void getSet(char*);
+    void getSet(unsigned int);
+
     void clearScreen(){};
     void clearView(){};
     void randomize(){};
@@ -82,12 +85,13 @@ void life::putMenu() {
 void life::changeParameters() {
   char inputChar = cin.get();
   while(true){
-    putSubMenu();
     while(inputChar != '\n') {
       switch(inputChar) {
         case 'L':
+          getSet(&lChar);
           break;
         case 'D':
+          getSet(&dChar);
           break;
         case 'M':
           break;
@@ -97,6 +101,10 @@ void life::changeParameters() {
           return;
           break;
       }
+      inputChar = cin.get();
+    }
+    if(inputChar == '\n') {
+      putSubMenu();
     }
     inputChar = cin.get();
   }
@@ -108,7 +116,21 @@ void life::putSubMenu() {
 }
 
 
-
+void life::getSet(char *c) {
+  //cin.clear();
+  cout << "Change the value: ";
+  char temp = cin.get();
+  while(temp == '\n') {
+    temp = cin.get();
+  }
+  *c = temp;
+}
+void life::getSet(unsigned int i) {
+  cout << "Change the value: ";
+  
+  i = cin.get();
+  cout << i;
+}
 
 
 
