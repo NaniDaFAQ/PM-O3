@@ -85,7 +85,7 @@ char getSetChar();
 unsigned int getSetInt();
 
 void life::changeParameters() {
-  char inputChar = cin.get();
+  char inputChar;
   while(true){
     while(inputChar != '\n') {
       switch(inputChar) {
@@ -111,12 +111,38 @@ void life::changeParameters() {
           return;
           break;
       }
-      inputChar = cin.get();
+      //inputChar = cin.get();
     }
     if(inputChar == '\n') {
       putSubMenu();
     }
     inputChar = cin.get();
+  }
+}
+
+void submenu() {
+  char keuze;
+  while (true) {
+    cout << "submne" << endl;
+    //keuze = leesoptie();
+    switch(keuze) {
+      case 'T':
+      case 't':
+        return;
+    }
+  }
+}
+
+void menu() {
+  char keuze;
+  while (true) {
+    cout << "menu" << endl;
+    //keuze = leesoptie();
+    switch(keuze) {
+      case 'S':
+      case 's':
+        return;
+    }
   }
 }
 
@@ -137,10 +163,7 @@ char getSetChar() {
 
 unsigned int getSetInt() {
   unsigned int changed = 0;
-  char t = cin.get();
-  while(t == '\n') {
-    t = cin.get();
-  }
+  char t = getSetChar();
   while(t != '\n') {
     if(t >= '0' && t <= '9') {
         changed *= 10;
@@ -349,7 +372,11 @@ unsigned int getSetInt() {
 
 int main() {
   
-  life Life;
-  Life.MainMenu();
+  //life Life;
+  //Life.MainMenu();
   
+  cout << getSetInt();
+
+
+
 }
